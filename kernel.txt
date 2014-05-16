@@ -1,0 +1,641 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Intel 80386
+  Version:                           0x1
+  Entry point address:               0x10000c
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          127496 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         2
+  Size of section headers:           40 (bytes)
+  Number of section headers:         18
+  Section header string table index: 15
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        80100000 001000 008088 00  AX  0   0  4
+  [ 2] .rodata           PROGBITS        80108088 009088 000672 00   A  0   0  4
+  [ 3] .stab             PROGBITS        801086fa 0096fa 000001 0c  WA  4   0  1
+  [ 4] .stabstr          STRTAB          801086fb 0096fb 000001 00  WA  0   0  1
+  [ 5] .data             PROGBITS        80109000 00a000 002596 00  WA  0   0 4096
+  [ 6] .bss              NOBITS          8010b5a0 00c596 00715c 00  WA  0   0 32
+  [ 7] .debug_line       PROGBITS        00000000 00c596 001f7f 00      0   0  1
+  [ 8] .debug_info       PROGBITS        00000000 00e515 00a7c2 00      0   0  1
+  [ 9] .debug_abbrev     PROGBITS        00000000 018cd7 00248a 00      0   0  1
+  [10] .debug_aranges    PROGBITS        00000000 01b168 0003a0 00      0   0  8
+  [11] .debug_loc        PROGBITS        00000000 01b508 002f48 00      0   0  1
+  [12] .debug_str        PROGBITS        00000000 01e450 000cce 01  MS  0   0  1
+  [13] .comment          PROGBITS        00000000 01f11e 00002a 01  MS  0   0  1
+  [14] .debug_ranges     PROGBITS        00000000 01f148 000018 00      0   0  1
+  [15] .shstrtab         STRTAB          00000000 01f160 0000a5 00      0   0  1
+  [16] .symtab           SYMTAB          00000000 01f4d8 0023d0 10     17 138  4
+  [17] .strtab           STRTAB          00000000 0218a8 0012d0 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x001000 0x80100000 0x00100000 0x0b596 0x126fc RWE 0x1000
+  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RWE 0x4
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text .rodata .stab .stabstr .data .bss 
+   01     
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+There are no unwind sections in this file.
+
+Symbol table '.symtab' contains 573 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 80100000     0 SECTION LOCAL  DEFAULT    1 
+     2: 80108088     0 SECTION LOCAL  DEFAULT    2 
+     3: 801086fa     0 SECTION LOCAL  DEFAULT    3 
+     4: 801086fb     0 SECTION LOCAL  DEFAULT    4 
+     5: 80109000     0 SECTION LOCAL  DEFAULT    5 
+     6: 8010b5a0     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000     0 FILE    LOCAL  DEFAULT  ABS bio.c
+    16: 801000b0   246 FUNC    LOCAL  DEFAULT    1 bget
+    17: 00000000     0 FILE    LOCAL  DEFAULT  ABS console.c
+    18: 801002b0    42 FUNC    LOCAL  DEFAULT    1 inb
+    19: 801002da    30 FUNC    LOCAL  DEFAULT    1 outb
+    20: 801002f8     6 FUNC    LOCAL  DEFAULT    1 cli
+    21: 8010b5a0     4 OBJECT  LOCAL  DEFAULT    6 panicked
+    22: 8010b5c0    56 OBJECT  LOCAL  DEFAULT    6 cons
+    23: 801002fe   163 FUNC    LOCAL  DEFAULT    1 printint
+    24: 80109004    17 OBJECT  LOCAL  DEFAULT    5 digits.1368
+    25: 80100750    93 FUNC    LOCAL  DEFAULT    1 consputc
+    26: 80109000     4 OBJECT  LOCAL  DEFAULT    5 crt
+    27: 801005cd   387 FUNC    LOCAL  DEFAULT    1 cgaputc
+    28: 00000000     0 FILE    LOCAL  DEFAULT  ABS exec.c
+    29: 00000000     0 FILE    LOCAL  DEFAULT  ABS file.c
+    30: 00000000     0 FILE    LOCAL  DEFAULT  ABS fs.c
+    31: 8010132a    81 FUNC    LOCAL  DEFAULT    1 bzero
+    32: 8010137b   343 FUNC    LOCAL  DEFAULT    1 balloc
+    33: 801014d2   217 FUNC    LOCAL  DEFAULT    1 bfree
+    34: 8010175c   210 FUNC    LOCAL  DEFAULT    1 iget
+    35: 80101c04   269 FUNC    LOCAL  DEFAULT    1 itrunc
+    36: 80101b02   258 FUNC    LOCAL  DEFAULT    1 bmap
+    37: 80102239   178 FUNC    LOCAL  DEFAULT    1 skipelem
+    38: 801022eb   279 FUNC    LOCAL  DEFAULT    1 namex
+    39: 00000000     0 FILE    LOCAL  DEFAULT  ABS ide.c
+    40: 80102448    42 FUNC    LOCAL  DEFAULT    1 inb
+    41: 80102472    37 FUNC    LOCAL  DEFAULT    1 insl
+    42: 80102497    30 FUNC    LOCAL  DEFAULT    1 outb
+    43: 801024b5    37 FUNC    LOCAL  DEFAULT    1 outsl
+    44: 8010b600    52 OBJECT  LOCAL  DEFAULT    6 idelock
+    45: 8010b634     4 OBJECT  LOCAL  DEFAULT    6 idequeue
+    46: 8010b638     4 OBJECT  LOCAL  DEFAULT    6 havedisk1
+    47: 801024da    68 FUNC    LOCAL  DEFAULT    1 idewait
+    48: 801025c4   293 FUNC    LOCAL  DEFAULT    1 idestart
+    49: 00000000     0 FILE    LOCAL  DEFAULT  ABS ioapic.c
+    50: 80102888    23 FUNC    LOCAL  DEFAULT    1 ioapicread
+    51: 8010289f    26 FUNC    LOCAL  DEFAULT    1 ioapicwrite
+    52: 00000000     0 FILE    LOCAL  DEFAULT  ABS kalloc.c
+    53: 801029bc    13 FUNC    LOCAL  DEFAULT    1 v2p
+    54: 00000000     0 FILE    LOCAL  DEFAULT  ABS kbd.c
+    55: 80102b44    42 FUNC    LOCAL  DEFAULT    1 inb
+    56: 80109020   256 OBJECT  LOCAL  DEFAULT    5 shiftcode
+    57: 80109120   256 OBJECT  LOCAL  DEFAULT    5 togglecode
+    58: 80109220   256 OBJECT  LOCAL  DEFAULT    5 normalmap
+    59: 80109320   256 OBJECT  LOCAL  DEFAULT    5 shiftmap
+    60: 80109420   256 OBJECT  LOCAL  DEFAULT    5 ctlmap
+    61: 8010b63c     4 OBJECT  LOCAL  DEFAULT    6 shift.1209
+    62: 80109520    16 OBJECT  LOCAL  DEFAULT    5 charcode.1210
+    63: 00000000     0 FILE    LOCAL  DEFAULT  ABS lapic.c
+    64: 80102cd4    30 FUNC    LOCAL  DEFAULT    1 outb
+    65: 80102cf2    21 FUNC    LOCAL  DEFAULT    1 readeflags
+    66: 80102d07    33 FUNC    LOCAL  DEFAULT    1 lapicw
+    67: 8010b640     4 OBJECT  LOCAL  DEFAULT    6 n.1282
+    68: 00000000     0 FILE    LOCAL  DEFAULT  ABS log.c
+    69: 801031f4    33 FUNC    LOCAL  DEFAULT    1 recover_from_log
+    70: 8010305f   171 FUNC    LOCAL  DEFAULT    1 install_trans
+    71: 8010310a   111 FUNC    LOCAL  DEFAULT    1 read_head
+    72: 80103179   123 FUNC    LOCAL  DEFAULT    1 write_head
+    73: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.c
+    74: 801033c0    13 FUNC    LOCAL  DEFAULT    1 v2p
+    75: 801033cd    13 FUNC    LOCAL  DEFAULT    1 p2v
+    76: 801033da    37 FUNC    LOCAL  DEFAULT    1 xchg
+    77: 80103510   227 FUNC    LOCAL  DEFAULT    1 startothers
+    78: 801034c9    71 FUNC    LOCAL  DEFAULT    1 mpmain
+    79: 801034af    26 FUNC    LOCAL  DEFAULT    1 mpenter
+    80: 00000000     0 FILE    LOCAL  DEFAULT  ABS mp.c
+    81: 801035f4    13 FUNC    LOCAL  DEFAULT    1 p2v
+    82: 80103601    42 FUNC    LOCAL  DEFAULT    1 inb
+    83: 8010362b    30 FUNC    LOCAL  DEFAULT    1 outb
+    84: 8010b644     4 OBJECT  LOCAL  DEFAULT    6 bcpu
+    85: 80103669    54 FUNC    LOCAL  DEFAULT    1 sum
+    86: 8010369f   115 FUNC    LOCAL  DEFAULT    1 mpsearch1
+    87: 80103712   186 FUNC    LOCAL  DEFAULT    1 mpsearch
+    88: 801037cc   173 FUNC    LOCAL  DEFAULT    1 mpconfig
+    89: 00000000     0 FILE    LOCAL  DEFAULT  ABS picirq.c
+    90: 80103a40    30 FUNC    LOCAL  DEFAULT    1 outb
+    91: 8010b000     2 OBJECT  LOCAL  DEFAULT    5 irqmask
+    92: 80103a5e    75 FUNC    LOCAL  DEFAULT    1 picsetmask
+    93: 00000000     0 FILE    LOCAL  DEFAULT  ABS pipe.c
+    94: 00000000     0 FILE    LOCAL  DEFAULT  ABS proc.c
+    95: 80103fd8    21 FUNC    LOCAL  DEFAULT    1 readeflags
+    96: 80103fed     6 FUNC    LOCAL  DEFAULT    1 sti
+    97: 8010b648     4 OBJECT  LOCAL  DEFAULT    6 initproc
+    98: 8010400f   255 FUNC    LOCAL  DEFAULT    1 allocproc
+    99: 801048a1    62 FUNC    LOCAL  DEFAULT    1 wakeup1
+   100: 8010b020     4 OBJECT  LOCAL  DEFAULT    5 first.1397
+   101: 8010b008    24 OBJECT  LOCAL  DEFAULT    5 states.1422
+   102: 00000000     0 FILE    LOCAL  DEFAULT  ABS spinlock.c
+   103: 80104a7c    21 FUNC    LOCAL  DEFAULT    1 readeflags
+   104: 80104a91     6 FUNC    LOCAL  DEFAULT    1 cli
+   105: 80104a97     6 FUNC    LOCAL  DEFAULT    1 sti
+   106: 80104a9d    37 FUNC    LOCAL  DEFAULT    1 xchg
+   107: 00000000     0 FILE    LOCAL  DEFAULT  ABS string.c
+   108: 80104ce8    37 FUNC    LOCAL  DEFAULT    1 stosb
+   109: 80104d0d    37 FUNC    LOCAL  DEFAULT    1 stosl
+   110: 00000000     0 FILE    LOCAL  DEFAULT  ABS syscall.c
+   111: 8010b040    88 OBJECT  LOCAL  DEFAULT    5 syscalls
+   112: 00000000     0 FILE    LOCAL  DEFAULT  ABS sysfile.c
+   113: 801051e4   117 FUNC    LOCAL  DEFAULT    1 argfd
+   114: 80105259    76 FUNC    LOCAL  DEFAULT    1 fdalloc
+   115: 80105620   110 FUNC    LOCAL  DEFAULT    1 isdirempty
+   116: 80105861   448 FUNC    LOCAL  DEFAULT    1 create
+   117: 00000000     0 FILE    LOCAL  DEFAULT  ABS sysproc.c
+   118: 00000000     0 FILE    LOCAL  DEFAULT  ABS timer.c
+   119: 801060a4    30 FUNC    LOCAL  DEFAULT    1 outb
+   120: 00000000     0 FILE    LOCAL  DEFAULT  ABS trap.c
+   121: 80106140    41 FUNC    LOCAL  DEFAULT    1 lidt
+   122: 80106169    22 FUNC    LOCAL  DEFAULT    1 rcr2
+   123: 00000000     0 FILE    LOCAL  DEFAULT  ABS uart.c
+   124: 80106594    42 FUNC    LOCAL  DEFAULT    1 inb
+   125: 801065be    30 FUNC    LOCAL  DEFAULT    1 outb
+   126: 8010b64c     4 OBJECT  LOCAL  DEFAULT    6 uart
+   127: 8010674c    68 FUNC    LOCAL  DEFAULT    1 uartgetc
+   128: 00000000     0 FILE    LOCAL  DEFAULT  ABS vm.c
+   129: 80107218    41 FUNC    LOCAL  DEFAULT    1 lgdt
+   130: 80107241    22 FUNC    LOCAL  DEFAULT    1 ltr
+   131: 80107257    21 FUNC    LOCAL  DEFAULT    1 loadgs
+   132: 8010726c    11 FUNC    LOCAL  DEFAULT    1 lcr3
+   133: 80107277    13 FUNC    LOCAL  DEFAULT    1 v2p
+   134: 80107284    13 FUNC    LOCAL  DEFAULT    1 p2v
+   135: 80107707   150 FUNC    LOCAL  DEFAULT    1 walkpgdir
+   136: 8010779d   148 FUNC    LOCAL  DEFAULT    1 mappages
+   137: 8010b4a0    64 OBJECT  LOCAL  DEFAULT    5 kmap
+   138: 80100925   257 FUNC    GLOBAL DEFAULT    1 consoleread
+   139: 8010716e     0 NOTYPE  GLOBAL DEFAULT    1 vector242
+   140: 80106bc5     0 NOTYPE  GLOBAL DEFAULT    1 vector119
+   141: 8010000c     0 NOTYPE  GLOBAL DEFAULT    1 entry
+   142: 80106aa5     0 NOTYPE  GLOBAL DEFAULT    1 vector87
+   143: 80106a9c     0 NOTYPE  GLOBAL DEFAULT    1 vector86
+   144: 80104f62    78 FUNC    GLOBAL DEFAULT    1 safestrcpy
+   145: 801053f4    81 FUNC    GLOBAL DEFAULT    1 sys_close
+   146: 801071da     0 NOTYPE  GLOBAL DEFAULT    1 vector251
+   147: 80103215    73 FUNC    GLOBAL DEFAULT    1 begin_trans
+   148: 80106ac9     0 NOTYPE  GLOBAL DEFAULT    1 vector91
+   149: 801068bf     0 NOTYPE  GLOBAL DEFAULT    1 vector33
+   150: 80106dae     0 NOTYPE  GLOBAL DEFAULT    1 vector162
+   151: 801047a8    50 FUNC    GLOBAL DEFAULT    1 yield
+   152: 8010f880   112 OBJECT  GLOBAL DEFAULT    6 log
+   153: 8010f840    60 OBJECT  GLOBAL DEFAULT    6 kmem
+   154: 80107012     0 NOTYPE  GLOBAL DEFAULT    1 vector213
+   155: 80106b62     0 NOTYPE  GLOBAL DEFAULT    1 vector108
+   156: 801065dc   273 FUNC    GLOBAL DEFAULT    1 uartinit
+   157: 80106919     0 NOTYPE  GLOBAL DEFAULT    1 vector43
+   158: 80102ee1    37 FUNC    GLOBAL DEFAULT    1 lapiceoi
+   159: 801060c2    80 FUNC    GLOBAL DEFAULT    1 timerinit
+   160: 80106dd2     0 NOTYPE  GLOBAL DEFAULT    1 vector165
+   161: 80106ec2     0 NOTYPE  GLOBAL DEFAULT    1 vector185
+   162: 801028b9   181 FUNC    GLOBAL DEFAULT    1 ioapicinit
+   163: 80106ba1     0 NOTYPE  GLOBAL DEFAULT    1 vector115
+   164: 801010e1   188 FUNC    GLOBAL DEFAULT    1 fileread
+   165: 80106be0     0 NOTYPE  GLOBAL DEFAULT    1 vector122
+   166: 80105f9b    74 FUNC    GLOBAL DEFAULT    1 sys_sbrk
+   167: 8010f900     1 OBJECT  GLOBAL DEFAULT    6 ioapicid
+   168: 80106d66     0 NOTYPE  GLOBAL DEFAULT    1 vector156
+   169: 80107192     0 NOTYPE  GLOBAL DEFAULT    1 vector245
+   170: 8010f834     4 OBJECT  GLOBAL DEFAULT    6 ioapic
+   171: 80106ef2     0 NOTYPE  GLOBAL DEFAULT    1 vector189
+   172: 801067e3     0 NOTYPE  GLOBAL DEFAULT    1 vector7
+   173: 801069bb     0 NOTYPE  GLOBAL DEFAULT    1 vector61
+   174: 8010686e     0 NOTYPE  GLOBAL DEFAULT    1 vector24
+   175: 80106b7d     0 NOTYPE  GLOBAL DEFAULT    1 vector111
+   176: 80106f76     0 NOTYPE  GLOBAL DEFAULT    1 vector200
+   177: 801069f1     0 NOTYPE  GLOBAL DEFAULT    1 vector67
+   178: 80106c8e     0 NOTYPE  GLOBAL DEFAULT    1 vector138
+   179: 80106a30     0 NOTYPE  GLOBAL DEFAULT    1 vector74
+   180: 801046f6   178 FUNC    GLOBAL DEFAULT    1 sched
+   181: 80104e05   131 FUNC    GLOBAL DEFAULT    1 memmove
+   182: 80106997     0 NOTYPE  GLOBAL DEFAULT    1 vector57
+   183: 80105155   143 FUNC    GLOBAL DEFAULT    1 syscall
+   184: 8010701e     0 NOTYPE  GLOBAL DEFAULT    1 vector214
+   185: 80106b11     0 NOTYPE  GLOBAL DEFAULT    1 vector99
+   186: 80101ec1   406 FUNC    GLOBAL DEFAULT    1 writei
+   187: 80106cb2     0 NOTYPE  GLOBAL DEFAULT    1 vector141
+   188: 80105f30    13 FUNC    GLOBAL DEFAULT    1 sys_fork
+   189: 8010c660  5948 OBJECT  GLOBAL DEFAULT    6 bcache
+   190: 80106e26     0 NOTYPE  GLOBAL DEFAULT    1 vector172
+   191: 80107162     0 NOTYPE  GLOBAL DEFAULT    1 vector241
+   192: 8010f904     4 OBJECT  GLOBAL DEFAULT    6 ismp
+   193: 80104b94   109 FUNC    GLOBAL DEFAULT    1 getcallerpcs
+   194: 80105ba7   113 FUNC    GLOBAL DEFAULT    1 sys_mkdir
+   195: 801071f2     0 NOTYPE  GLOBAL DEFAULT    1 vector253
+   196: 801067bf     0 NOTYPE  GLOBAL DEFAULT    1 vector3
+   197: 801067b6     0 NOTYPE  GLOBAL DEFAULT    1 vector2
+   198: 80102057    34 FUNC    GLOBAL DEFAULT    1 namecmp
+   199: 801070ba     0 NOTYPE  GLOBAL DEFAULT    1 vector227
+   200: 80106fee     0 NOTYPE  GLOBAL DEFAULT    1 vector210
+   201: 8010511e    55 FUNC    GLOBAL DEFAULT    1 argstr
+   202: 80107096     0 NOTYPE  GLOBAL DEFAULT    1 vector224
+   203: 80106907     0 NOTYPE  GLOBAL DEFAULT    1 vector41
+   204: 801003a1   412 FUNC    GLOBAL DEFAULT    1 cprintf
+   205: 80100f74    72 FUNC    GLOBAL DEFAULT    1 filedup
+   206: 80102402    34 FUNC    GLOBAL DEFAULT    1 namei
+   207: 80106853     0 NOTYPE  GLOBAL DEFAULT    1 vector21
+   208: 80100034   124 FUNC    GLOBAL DEFAULT    1 binit
+   209: 80106e62     0 NOTYPE  GLOBAL DEFAULT    1 vector177
+   210: 80106bbc     0 NOTYPE  GLOBAL DEFAULT    1 vector118
+   211: 80106a0c     0 NOTYPE  GLOBAL DEFAULT    1 vector70
+   212: 80106a03     0 NOTYPE  GLOBAL DEFAULT    1 vector69
+   213: 80107132     0 NOTYPE  GLOBAL DEFAULT    1 vector237
+   214: 801069d6     0 NOTYPE  GLOBAL DEFAULT    1 vector64
+   215: 80106889     0 NOTYPE  GLOBAL DEFAULT    1 vector27
+   216: 80106c46     0 NOTYPE  GLOBAL DEFAULT    1 vector132
+   217: 80106ece     0 NOTYPE  GLOBAL DEFAULT    1 vector186
+   218: 801052fc   124 FUNC    GLOBAL DEFAULT    1 sys_read
+   219: 80107042     0 NOTYPE  GLOBAL DEFAULT    1 vector217
+   220: 80104ff0    58 FUNC    GLOBAL DEFAULT    1 fetchint
+   221: 80107831   189 FUNC    GLOBAL DEFAULT    1 setupkvm
+   222: 80104e88    33 FUNC    GLOBAL DEFAULT    1 memcpy
+   223: 80107d99   142 FUNC    GLOBAL DEFAULT    1 freevm
+   224: 801067ad     0 NOTYPE  GLOBAL DEFAULT    1 vector1
+   225: 80106e6e     0 NOTYPE  GLOBAL DEFAULT    1 vector178
+   226: 801068ec     0 NOTYPE  GLOBAL DEFAULT    1 vector38
+   227: 80102a5e   153 FUNC    GLOBAL DEFAULT    1 kfree
+   228: 8010713e     0 NOTYPE  GLOBAL DEFAULT    1 vector238
+   229: 80101a13   209 FUNC    GLOBAL DEFAULT    1 iput
+   230: 80106c52     0 NOTYPE  GLOBAL DEFAULT    1 vector133
+   231: 80106a27     0 NOTYPE  GLOBAL DEFAULT    1 vector73
+   232: 80106cd6     0 NOTYPE  GLOBAL DEFAULT    1 vector144
+   233: 801071fe     0 NOTYPE  GLOBAL DEFAULT    1 vector254
+   234: 801012e4    70 FUNC    GLOBAL DEFAULT    1 readsb
+   235: 8010b004     4 OBJECT  GLOBAL DEFAULT    5 nextpid
+   236: 80106b23     0 NOTYPE  GLOBAL DEFAULT    1 vector101
+   237: 80106ffa     0 NOTYPE  GLOBAL DEFAULT    1 vector211
+   238: 80103879   455 FUNC    GLOBAL DEFAULT    1 mpinit
+   239: 80106e3e     0 NOTYPE  GLOBAL DEFAULT    1 vector174
+   240: 8010717a     0 NOTYPE  GLOBAL DEFAULT    1 vector243
+   241: 80102e85    92 FUNC    GLOBAL DEFAULT    1 cpunum
+   242: 80100ef8    28 FUNC    GLOBAL DEFAULT    1 fileinit
+   243: 801126c0    56 OBJECT  GLOBAL DEFAULT    6 gdt
+   244: 80104ac2    33 FUNC    GLOBAL DEFAULT    1 initlock
+   245: 80106c16     0 NOTYPE  GLOBAL DEFAULT    1 vector128
+   246: 80107fdb   173 FUNC    GLOBAL DEFAULT    1 copyout
+   247: 80106a6f     0 NOTYPE  GLOBAL DEFAULT    1 vector81
+   248: 80104806   155 FUNC    GLOBAL DEFAULT    1 sleep
+   249: 80102f06     5 FUNC    GLOBAL DEFAULT    1 microdelay
+   250: 80106811     0 NOTYPE  GLOBAL DEFAULT    1 vector13
+   251: 80106961     0 NOTYPE  GLOBAL DEFAULT    1 vector51
+   252: 80106828     0 NOTYPE  GLOBAL DEFAULT    1 vector16
+   253: 8010dda0   192 OBJECT  GLOBAL DEFAULT    6 input
+   254: 80107156     0 NOTYPE  GLOBAL DEFAULT    1 vector240
+   255: 8010697c     0 NOTYPE  GLOBAL DEFAULT    1 vector54
+   256: 80106841     0 NOTYPE  GLOBAL DEFAULT    1 vector19
+   257: 80106ad2     0 NOTYPE  GLOBAL DEFAULT    1 vector92
+   258: 80107186     0 NOTYPE  GLOBAL DEFAULT    1 vector244
+   259: 80101d11    69 FUNC    GLOBAL DEFAULT    1 stati
+   260: 80106ca6     0 NOTYPE  GLOBAL DEFAULT    1 vector140
+   261: 80105f5c    49 FUNC    GLOBAL DEFAULT    1 sys_kill
+   262: 8010692b     0 NOTYPE  GLOBAL DEFAULT    1 vector45
+   263: 80106a5d     0 NOTYPE  GLOBAL DEFAULT    1 vector79
+   264: 80103d63   146 FUNC    GLOBAL DEFAULT    1 pipeclose
+   265: 801070d2     0 NOTYPE  GLOBAL DEFAULT    1 vector229
+   266: 80106d7e     0 NOTYPE  GLOBAL DEFAULT    1 vector158
+   267: 80105445    95 FUNC    GLOBAL DEFAULT    1 sys_fstat
+   268: 80100a26   103 FUNC    GLOBAL DEFAULT    1 consolewrite
+   269: 801068f5     0 NOTYPE  GLOBAL DEFAULT    1 vector39
+   270: 80106df6     0 NOTYPE  GLOBAL DEFAULT    1 vector168
+   271: 801068d1     0 NOTYPE  GLOBAL DEFAULT    1 vector35
+   272: 80106b8f     0 NOTYPE  GLOBAL DEFAULT    1 vector113
+   273: 80102a25    57 FUNC    GLOBAL DEFAULT    1 freerange
+   274: 80106bfb     0 NOTYPE  GLOBAL DEFAULT    1 vector125
+   275: 80107c03   218 FUNC    GLOBAL DEFAULT    1 allocuvm
+   276: 80106134     0 NOTYPE  GLOBAL DEFAULT    1 trapret
+   277: 80107036     0 NOTYPE  GLOBAL DEFAULT    1 vector216
+   278: 801069cd     0 NOTYPE  GLOBAL DEFAULT    1 vector63
+   279: 80106880     0 NOTYPE  GLOBAL DEFAULT    1 vector26
+   280: 80106f22     0 NOTYPE  GLOBAL DEFAULT    1 vector193
+   281: 80102d28   349 FUNC    GLOBAL DEFAULT    1 lapicinit
+   282: 80106f46     0 NOTYPE  GLOBAL DEFAULT    1 vector196
+   283: 80106fe2     0 NOTYPE  GLOBAL DEFAULT    1 vector209
+   284: 801067c8     0 NOTYPE  GLOBAL DEFAULT    1 vector4
+   285: 80106e0e     0 NOTYPE  GLOBAL DEFAULT    1 vector170
+   286: 8010b650  4096 OBJECT  GLOBAL DEFAULT    6 stack
+   287: 80106c76     0 NOTYPE  GLOBAL DEFAULT    1 vector136
+   288: 801067fc     0 NOTYPE  GLOBAL DEFAULT    1 vector10
+   289: 80106fbe     0 NOTYPE  GLOBAL DEFAULT    1 vector206
+   290: 801019ae   101 FUNC    GLOBAL DEFAULT    1 iunlock
+   291: 80105fe5   146 FUNC    GLOBAL DEFAULT    1 sys_sleep
+   292: 8010720a     0 NOTYPE  GLOBAL DEFAULT    1 vector255
+   293: 80106e92     0 NOTYPE  GLOBAL DEFAULT    1 vector181
+   294: 801069a9     0 NOTYPE  GLOBAL DEFAULT    1 vector59
+   295: 80106a93     0 NOTYPE  GLOBAL DEFAULT    1 vector85
+   296: 80106a8a     0 NOTYPE  GLOBAL DEFAULT    1 vector84
+   297: 80106eaa     0 NOTYPE  GLOBAL DEFAULT    1 vector183
+   298: 80106d8a     0 NOTYPE  GLOBAL DEFAULT    1 vector159
+   299: 80107006     0 NOTYPE  GLOBAL DEFAULT    1 vector212
+   300: 801054a4   380 FUNC    GLOBAL DEFAULT    1 sys_link
+   301: 8010693d     0 NOTYPE  GLOBAL DEFAULT    1 vector47
+   302: 801070c6     0 NOTYPE  GLOBAL DEFAULT    1 vector228
+   303: 80106910     0 NOTYPE  GLOBAL DEFAULT    1 vector42
+   304: 80106b98     0 NOTYPE  GLOBAL DEFAULT    1 vector114
+   305: 80107f7e    93 FUNC    GLOBAL DEFAULT    1 uva2ka
+   306: 80106e4a     0 NOTYPE  GLOBAL DEFAULT    1 vector175
+   307: 80106cca     0 NOTYPE  GLOBAL DEFAULT    1 vector143
+   308: 80100f14    96 FUNC    GLOBAL DEFAULT    1 filealloc
+   309: 801048df    43 FUNC    GLOBAL DEFAULT    1 wakeup
+   310: 80106c2e     0 NOTYPE  GLOBAL DEFAULT    1 vector130
+   311: 8010719e     0 NOTYPE  GLOBAL DEFAULT    1 vector246
+   312: 801067f3     0 NOTYPE  GLOBAL DEFAULT    1 vector9
+   313: 80106cbe     0 NOTYPE  GLOBAL DEFAULT    1 vector142
+   314: 80106b1a     0 NOTYPE  GLOBAL DEFAULT    1 vector100
+   315: 80106f82     0 NOTYPE  GLOBAL DEFAULT    1 vector201
+   316: 80107e27    70 FUNC    GLOBAL DEFAULT    1 clearpteu
+   317: 8010617f   372 FUNC    GLOBAL DEFAULT    1 tvinit
+   318: 801069b2     0 NOTYPE  GLOBAL DEFAULT    1 vector60
+   319: 80106865     0 NOTYPE  GLOBAL DEFAULT    1 vector23
+   320: 8010182e    50 FUNC    GLOBAL DEFAULT    1 idup
+   321: 80107126     0 NOTYPE  GLOBAL DEFAULT    1 vector236
+   322: 80102cbf    20 FUNC    GLOBAL DEFAULT    1 kbdintr
+   323: 80105a21   390 FUNC    GLOBAL DEFAULT    1 sys_open
+   324: 801070ea     0 NOTYPE  GLOBAL DEFAULT    1 vector231
+   325: 801069e8     0 NOTYPE  GLOBAL DEFAULT    1 vector66
+   326: 8010689b     0 NOTYPE  GLOBAL DEFAULT    1 vector29
+   327: 80101d56   363 FUNC    GLOBAL DEFAULT    1 readi
+   328: 80106c6a     0 NOTYPE  GLOBAL DEFAULT    1 vector135
+   329: 801007ad   376 FUNC    GLOBAL DEFAULT    1 consoleintr
+   330: 8010490a   120 FUNC    GLOBAL DEFAULT    1 kill
+   331: 80106a4b     0 NOTYPE  GLOBAL DEFAULT    1 vector77
+   332: 801015c7   221 FUNC    GLOBAL DEFAULT    1 ialloc
+   333: 80106e86     0 NOTYPE  GLOBAL DEFAULT    1 vector180
+   334: 801126f8     4 OBJECT  GLOBAL DEFAULT    6 kpgdir
+   335: 80106fd6     0 NOTYPE  GLOBAL DEFAULT    1 vector208
+   336: 80106790    20 FUNC    GLOBAL DEFAULT    1 uartintr
+   337: 80106b08     0 NOTYPE  GLOBAL DEFAULT    1 vector98
+   338: 80106aff     0 NOTYPE  GLOBAL DEFAULT    1 vector97
+   339: 80106e56     0 NOTYPE  GLOBAL DEFAULT    1 vector176
+   340: 80106f2e     0 NOTYPE  GLOBAL DEFAULT    1 vector194
+   341: 801068b6     0 NOTYPE  GLOBAL DEFAULT    1 vector32
+   342: 801126fc     0 NOTYPE  GLOBAL DEFAULT  ABS end
+   343: 80106f6a     0 NOTYPE  GLOBAL DEFAULT    1 vector199
+   344: 80106c3a     0 NOTYPE  GLOBAL DEFAULT    1 vector131
+   345: 801071e6     0 NOTYPE  GLOBAL DEFAULT    1 vector252
+   346: 8010119d   325 FUNC    GLOBAL DEFAULT    1 filewrite
+   347: 801067a4     0 NOTYPE  GLOBAL DEFAULT    1 vector0
+   348: 8010508e    46 FUNC    GLOBAL DEFAULT    1 argint
+   349: 80100afc  1020 FUNC    GLOBAL DEFAULT    1 exec
+   350: 80106ce2     0 NOTYPE  GLOBAL DEFAULT    1 vector145
+   351: 80105378   124 FUNC    GLOBAL DEFAULT    1 sys_write
+   352: 80104b45    79 FUNC    GLOBAL DEFAULT    1 release
+   353: 8010502a   100 FUNC    GLOBAL DEFAULT    1 fetchstr
+   354: 80106b59     0 NOTYPE  GLOBAL DEFAULT    1 vector107
+   355: 801068fe     0 NOTYPE  GLOBAL DEFAULT    1 vector40
+   356: 8010454e   271 FUNC    GLOBAL DEFAULT    1 wait
+   357: 80106b2c     0 NOTYPE  GLOBAL DEFAULT    1 vector102
+   358: 8010a000  4096 OBJECT  GLOBAL DEFAULT    5 entrypgdir
+   359: 0010000c     0 NOTYPE  GLOBAL DEFAULT    1 _start
+   360: 8010698e     0 NOTYPE  GLOBAL DEFAULT    1 vector56
+   361: 801069fa     0 NOTYPE  GLOBAL DEFAULT    1 vector68
+   362: 801067da     0 NOTYPE  GLOBAL DEFAULT    1 vector6
+   363: 8010b50c     0 NOTYPE  GLOBAL DEFAULT    5 _binary_initcode_end
+   364: 80100000     0 NOTYPE  GLOBAL DEFAULT    1 multiboot_header
+   365: 80106c22     0 NOTYPE  GLOBAL DEFAULT    1 vector129
+   366: 8010465d   153 FUNC    GLOBAL DEFAULT    1 scheduler
+   367: 80102079   200 FUNC    GLOBAL DEFAULT    1 dirlookup
+   368: 80106f52     0 NOTYPE  GLOBAL DEFAULT    1 vector197
+   369: 80100fbc   214 FUNC    GLOBAL DEFAULT    1 fileclose
+   370: 8010325e    88 FUNC    GLOBAL DEFAULT    1 commit_trans
+   371: 80106d36     0 NOTYPE  GLOBAL DEFAULT    1 vector152
+   372: 801078ee    23 FUNC    GLOBAL DEFAULT    1 kvmalloc
+   373: 801070de     0 NOTYPE  GLOBAL DEFAULT    1 vector230
+   374: 80104ea9    88 FUNC    GLOBAL DEFAULT    1 strncmp
+   375: 801068e3     0 NOTYPE  GLOBAL DEFAULT    1 vector37
+   376: 80106fb2     0 NOTYPE  GLOBAL DEFAULT    1 vector205
+   377: 80106da2     0 NOTYPE  GLOBAL DEFAULT    1 vector161
+   378: 80111e60    52 OBJECT  GLOBAL DEFAULT    6 tickslock
+   379: 80103df5   240 FUNC    GLOBAL DEFAULT    1 pipewrite
+   380: 80104f01    97 FUNC    GLOBAL DEFAULT    1 strncpy
+   381: 80106a15     0 NOTYPE  GLOBAL DEFAULT    1 vector71
+   382: 80107e6d   273 FUNC    GLOBAL DEFAULT    1 copyuvm
+   383: 8010de60  2452 OBJECT  GLOBAL DEFAULT    6 ftable
+   384: 80106d96     0 NOTYPE  GLOBAL DEFAULT    1 vector160
+   385: 801050bc    98 FUNC    GLOBAL DEFAULT    1 argptr
+   386: 8010702a     0 NOTYPE  GLOBAL DEFAULT    1 vector215
+   387: 80106d72     0 NOTYPE  GLOBAL DEFAULT    1 vector157
+   388: 801052a5    87 FUNC    GLOBAL DEFAULT    1 sys_dup
+   389: 80106b86     0 NOTYPE  GLOBAL DEFAULT    1 vector112
+   390: 8010053d   144 FUNC    GLOBAL DEFAULT    1 panic
+   391: 801047da    44 FUNC    GLOBAL DEFAULT    1 forkret
+   392: 80106e9e     0 NOTYPE  GLOBAL DEFAULT    1 vector182
+   393: 8010680a     0 NOTYPE  GLOBAL DEFAULT    1 vector12
+   394: 80104da9    92 FUNC    GLOBAL DEFAULT    1 memcmp
+   395: 80102b6e   337 FUNC    GLOBAL DEFAULT    1 kbdgetc
+   396: 80106b6b     0 NOTYPE  GLOBAL DEFAULT    1 vector109
+   397: 8010684a     0 NOTYPE  GLOBAL DEFAULT    1 vector20
+   398: 801042d3   355 FUNC    GLOBAL DEFAULT    1 fork
+   399: 80106973     0 NOTYPE  GLOBAL DEFAULT    1 vector53
+   400: 80106838     0 NOTYPE  GLOBAL DEFAULT    1 vector18
+   401: 0000008a     0 NOTYPE  GLOBAL DEFAULT  ABS _binary_entryother_size
+   402: 8010f920  1504 OBJECT  GLOBAL DEFAULT    6 cpus
+   403: 80106aed     0 NOTYPE  GLOBAL DEFAULT    1 vector95
+   404: 80104c01    42 FUNC    GLOBAL DEFAULT    1 holding
+   405: 80104ae3    98 FUNC    GLOBAL DEFAULT    1 acquire
+   406: 801070ae     0 NOTYPE  GLOBAL DEFAULT    1 vector226
+   407: 80102424    34 FUNC    GLOBAL DEFAULT    1 nameiparent
+   408: 8010694f     0 NOTYPE  GLOBAL DEFAULT    1 vector49
+   409: 80106922     0 NOTYPE  GLOBAL DEFAULT    1 vector44
+   410: 8010f87c     4 OBJECT  GLOBAL DEFAULT    6 lapic
+   411: 80106a54     0 NOTYPE  GLOBAL DEFAULT    1 vector78
+   412: 80106114     0 NOTYPE  GLOBAL DEFAULT    1 alltraps
+   413: 80106e32     0 NOTYPE  GLOBAL DEFAULT    1 vector173
+   414: 80106bb3     0 NOTYPE  GLOBAL DEFAULT    1 vector117
+   415: 80106a78     0 NOTYPE  GLOBAL DEFAULT    1 vector82
+   416: 80103aa9    53 FUNC    GLOBAL DEFAULT    1 picenable
+   417: 8010707e     0 NOTYPE  GLOBAL DEFAULT    1 vector222
+   418: 801067ec     0 NOTYPE  GLOBAL DEFAULT    1 vector8
+   419: 80106d12     0 NOTYPE  GLOBAL DEFAULT    1 vector149
+   420: 801016a4   184 FUNC    GLOBAL DEFAULT    1 iupdate
+   421: 80109000     0 NOTYPE  GLOBAL DEFAULT  ABS data
+   422: 80104d32   119 FUNC    GLOBAL DEFAULT    1 memset
+   423: 801070f6     0 NOTYPE  GLOBAL DEFAULT    1 vector232
+   424: 801033ff   176 FUNC    GLOBAL DEFAULT    1 main
+   425: 80107905    29 FUNC    GLOBAL DEFAULT    1 switchkvm
+   426: 80106b50     0 NOTYPE  GLOBAL DEFAULT    1 vector106
+   427: 80107066     0 NOTYPE  GLOBAL DEFAULT    1 vector220
+   428: 80106ac0     0 NOTYPE  GLOBAL DEFAULT    1 vector90
+   429: 80106dba     0 NOTYPE  GLOBAL DEFAULT    1 vector163
+   430: 8010710e     0 NOTYPE  GLOBAL DEFAULT    1 vector234
+   431: 801032b6   265 FUNC    GLOBAL DEFAULT    1 log_write
+   432: 8010568e   467 FUNC    GLOBAL DEFAULT    1 sys_unlink
+   433: 801069c4     0 NOTYPE  GLOBAL DEFAULT    1 vector62
+   434: 80106877     0 NOTYPE  GLOBAL DEFAULT    1 vector25
+   435: 80106f5e     0 NOTYPE  GLOBAL DEFAULT    1 vector198
+   436: 80106bce     0 NOTYPE  GLOBAL DEFAULT    1 vector120
+   437: 8010b50c     0 NOTYPE  GLOBAL DEFAULT    5 _binary_entryother_start
+   438: 801029c9    56 FUNC    GLOBAL DEFAULT    1 kinit1
+   439: 80106958     0 NOTYPE  GLOBAL DEFAULT    1 vector50
+   440: 8010681f     0 NOTYPE  GLOBAL DEFAULT    1 vector15
+   441: 80106d2a     0 NOTYPE  GLOBAL DEFAULT    1 vector151
+   442: 80106a81     0 NOTYPE  GLOBAL DEFAULT    1 vector83
+   443: 80106ab7     0 NOTYPE  GLOBAL DEFAULT    1 vector89
+   444: 80106aae     0 NOTYPE  GLOBAL DEFAULT    1 vector88
+   445: 8010630f   645 FUNC    GLOBAL DEFAULT    1 trap
+   446: 80106077    43 FUNC    GLOBAL DEFAULT    1 sys_uptime
+   447: 80106e7a     0 NOTYPE  GLOBAL DEFAULT    1 vector179
+   448: 801068c8     0 NOTYPE  GLOBAL DEFAULT    1 vector34
+   449: 80106934     0 NOTYPE  GLOBAL DEFAULT    1 vector46
+   450: 80106c5e     0 NOTYPE  GLOBAL DEFAULT    1 vector134
+   451: 8010708a     0 NOTYPE  GLOBAL DEFAULT    1 vector223
+   452: 80111ea0  2048 OBJECT  GLOBAL DEFAULT    6 idt
+   453: 8010704e     0 NOTYPE  GLOBAL DEFAULT    1 vector218
+   454: 80103ff3    28 FUNC    GLOBAL DEFAULT    1 pinit
+   455: 80107cdd   188 FUNC    GLOBAL DEFAULT    1 deallocuvm
+   456: 801070a2     0 NOTYPE  GLOBAL DEFAULT    1 vector225
+   457: 80106eda     0 NOTYPE  GLOBAL DEFAULT    1 vector187
+   458: 8010422e   165 FUNC    GLOBAL DEFAULT    1 growproc
+   459: 8010ff00     4 OBJECT  GLOBAL DEFAULT    6 ncpu
+   460: 801068a4     0 NOTYPE  GLOBAL DEFAULT    1 vector30
+   461: 8010410e   288 FUNC    GLOBAL DEFAULT    1 userinit
+   462: 801001a6    55 FUNC    GLOBAL DEFAULT    1 bread
+   463: 80106c0d     0 NOTYPE  GLOBAL DEFAULT    1 vector127
+   464: 80103ee5   242 FUNC    GLOBAL DEFAULT    1 piperead
+   465: 801126a0     4 OBJECT  GLOBAL DEFAULT    6 ticks
+   466: 80106f16     0 NOTYPE  GLOBAL DEFAULT    1 vector192
+   467: 80106dde     0 NOTYPE  GLOBAL DEFAULT    1 vector166
+   468: 80100a8d   110 FUNC    GLOBAL DEFAULT    1 consoleinit
+   469: 80106a42     0 NOTYPE  GLOBAL DEFAULT    1 vector76
+   470: 80106a39     0 NOTYPE  GLOBAL DEFAULT    1 vector75
+   471: 801026e9   195 FUNC    GLOBAL DEFAULT    1 ideintr
+   472: 80106f3a     0 NOTYPE  GLOBAL DEFAULT    1 vector195
+   473: 80106d1e     0 NOTYPE  GLOBAL DEFAULT    1 vector150
+   474: 801069a0     0 NOTYPE  GLOBAL DEFAULT    1 vector58
+   475: 801071b6     0 NOTYPE  GLOBAL DEFAULT    1 vector248
+   476: 80106be9     0 NOTYPE  GLOBAL DEFAULT    1 vector123
+   477: 80106af6     0 NOTYPE  GLOBAL DEFAULT    1 vector96
+   478: 801068ad     0 NOTYPE  GLOBAL DEFAULT    1 vector31
+   479: 80106f9a     0 NOTYPE  GLOBAL DEFAULT    1 vector203
+   480: 80106c9a     0 NOTYPE  GLOBAL DEFAULT    1 vector139
+   481: 80106d42     0 NOTYPE  GLOBAL DEFAULT    1 vector153
+   482: 80106dc6     0 NOTYPE  GLOBAL DEFAULT    1 vector164
+   483: 80104982   249 FUNC    GLOBAL DEFAULT    1 procdump
+   484: 80106bd7     0 NOTYPE  GLOBAL DEFAULT    1 vector121
+   485: 801066ed    95 FUNC    GLOBAL DEFAULT    1 uartputc
+   486: 801067d1     0 NOTYPE  GLOBAL DEFAULT    1 vector5
+   487: 80106dea     0 NOTYPE  GLOBAL DEFAULT    1 vector167
+   488: 80106d5a     0 NOTYPE  GLOBAL DEFAULT    1 vector155
+   489: 801071c2     0 NOTYPE  GLOBAL DEFAULT    1 vector249
+   490: 80100217   153 FUNC    GLOBAL DEFAULT    1 brelse
+   491: 801071ce     0 NOTYPE  GLOBAL DEFAULT    1 vector250
+   492: 80106bf2     0 NOTYPE  GLOBAL DEFAULT    1 vector124
+   493: 80106b74     0 NOTYPE  GLOBAL DEFAULT    1 vector110
+   494: 80106fa6     0 NOTYPE  GLOBAL DEFAULT    1 vector204
+   495: 80101860   334 FUNC    GLOBAL DEFAULT    1 ilock
+   496: 80105d51   274 FUNC    GLOBAL DEFAULT    1 sys_exec
+   497: 80106c82     0 NOTYPE  GLOBAL DEFAULT    1 vector137
+   498: 8010b4e0     0 NOTYPE  GLOBAL DEFAULT    5 _binary_initcode_start
+   499: 80104fd8     0 NOTYPE  GLOBAL DEFAULT    1 swtch
+   500: 801071aa     0 NOTYPE  GLOBAL DEFAULT    1 vector247
+   501: 8010685c     0 NOTYPE  GLOBAL DEFAULT    1 vector22
+   502: 80106f8e     0 NOTYPE  GLOBAL DEFAULT    1 vector202
+   503: 80107291  1142 FUNC    GLOBAL DEFAULT    1 seginit
+   504: 80101ae4    30 FUNC    GLOBAL DEFAULT    1 iunlockput
+   505: 80106a1e     0 NOTYPE  GLOBAL DEFAULT    1 vector72
+   506: 80106985     0 NOTYPE  GLOBAL DEFAULT    1 vector55
+   507: 80106c04     0 NOTYPE  GLOBAL DEFAULT    1 vector126
+   508: 801069df     0 NOTYPE  GLOBAL DEFAULT    1 vector65
+   509: 80106892     0 NOTYPE  GLOBAL DEFAULT    1 vector28
+   510: 8010b596     0 NOTYPE  GLOBAL DEFAULT    5 _binary_entryother_end
+   511: 80106e02     0 NOTYPE  GLOBAL DEFAULT    1 vector169
+   512: 801001dd    58 FUNC    GLOBAL DEFAULT    1 bwrite
+   513: 80107102     0 NOTYPE  GLOBAL DEFAULT    1 vector233
+   514: 801062f3    28 FUNC    GLOBAL DEFAULT    1 idtinit
+   515: 80104436   280 FUNC    GLOBAL DEFAULT    1 exit
+   516: 80105f4f    13 FUNC    GLOBAL DEFAULT    1 sys_wait
+   517: 80105f3d    18 FUNC    GLOBAL DEFAULT    1 sys_exit
+   518: 80102141   248 FUNC    GLOBAL DEFAULT    1 dirlink
+   519: 0000002c     0 NOTYPE  GLOBAL DEFAULT  ABS _binary_initcode_size
+   520: 80106cfa     0 NOTYPE  GLOBAL DEFAULT    1 vector147
+   521: 8010251e   166 FUNC    GLOBAL DEFAULT    1 ideinit
+   522: 80107b14   239 FUNC    GLOBAL DEFAULT    1 loaduvm
+   523: 80106b3e     0 NOTYPE  GLOBAL DEFAULT    1 vector104
+   524: 80106baa     0 NOTYPE  GLOBAL DEFAULT    1 vector116
+   525: 8010ff20  7988 OBJECT  GLOBAL DEFAULT    6 ptable
+   526: 8010296e    75 FUNC    GLOBAL DEFAULT    1 ioapicenable
+   527: 80104c73   114 FUNC    GLOBAL DEFAULT    1 popcli
+   528: 8010b098     0 NOTYPE  GLOBAL DEFAULT    5 vectors
+   529: 8010696a     0 NOTYPE  GLOBAL DEFAULT    1 vector52
+   530: 80106831     0 NOTYPE  GLOBAL DEFAULT    1 vector17
+   531: 80106eb6     0 NOTYPE  GLOBAL DEFAULT    1 vector184
+   532: 80104fb0    37 FUNC    GLOBAL DEFAULT    1 strlen
+   533: 80103649    32 FUNC    GLOBAL DEFAULT    1 mpbcpu
+   534: 80105e63   204 FUNC    GLOBAL DEFAULT    1 sys_pipe
+   535: 801015ab    28 FUNC    GLOBAL DEFAULT    1 iinit
+   536: 80103ade   319 FUNC    GLOBAL DEFAULT    1 picinit
+   537: 80106fca     0 NOTYPE  GLOBAL DEFAULT    1 vector207
+   538: 80107a89   139 FUNC    GLOBAL DEFAULT    1 inituvm
+   539: 80106efe     0 NOTYPE  GLOBAL DEFAULT    1 vector190
+   540: 8010714a     0 NOTYPE  GLOBAL DEFAULT    1 vector239
+   541: 80106ae4     0 NOTYPE  GLOBAL DEFAULT    1 vector94
+   542: 80106adb     0 NOTYPE  GLOBAL DEFAULT    1 vector93
+   543: 80103008    87 FUNC    GLOBAL DEFAULT    1 initlog
+   544: 80106ee6     0 NOTYPE  GLOBAL DEFAULT    1 vector188
+   545: 80106946     0 NOTYPE  GLOBAL DEFAULT    1 vector48
+   546: 801027ac   217 FUNC    GLOBAL DEFAULT    1 iderw
+   547: 8010705a     0 NOTYPE  GLOBAL DEFAULT    1 vector219
+   548: 80106d06     0 NOTYPE  GLOBAL DEFAULT    1 vector148
+   549: 80107072     0 NOTYPE  GLOBAL DEFAULT    1 vector221
+   550: 80102af7    77 FUNC    GLOBAL DEFAULT    1 kalloc
+   551: 8010e800    80 OBJECT  GLOBAL DEFAULT    6 devsw
+   552: 80105f8d    14 FUNC    GLOBAL DEFAULT    1 sys_getpid
+   553: 80106a66     0 NOTYPE  GLOBAL DEFAULT    1 vector80
+   554: 80106e1a     0 NOTYPE  GLOBAL DEFAULT    1 vector171
+   555: 80106d4e     0 NOTYPE  GLOBAL DEFAULT    1 vector154
+   556: 801068da     0 NOTYPE  GLOBAL DEFAULT    1 vector36
+   557: 80103c20   323 FUNC    GLOBAL DEFAULT    1 pipealloc
+   558: 8010711a     0 NOTYPE  GLOBAL DEFAULT    1 vector235
+   559: 80106b47     0 NOTYPE  GLOBAL DEFAULT    1 vector105
+   560: 80105cc0   145 FUNC    GLOBAL DEFAULT    1 sys_chdir
+   561: 8010e860  4052 OBJECT  GLOBAL DEFAULT    6 icache
+   562: 80106cee     0 NOTYPE  GLOBAL DEFAULT    1 vector146
+   563: 80106f0a     0 NOTYPE  GLOBAL DEFAULT    1 vector191
+   564: 80106b35     0 NOTYPE  GLOBAL DEFAULT    1 vector103
+   565: 80105c18   168 FUNC    GLOBAL DEFAULT    1 sys_mknod
+   566: 80102f0b   250 FUNC    GLOBAL DEFAULT    1 lapicstartap
+   567: 80107922   359 FUNC    GLOBAL DEFAULT    1 switchuvm
+   568: 80104c2b    72 FUNC    GLOBAL DEFAULT    1 pushcli
+   569: 80102a01    36 FUNC    GLOBAL DEFAULT    1 kinit2
+   570: 80106803     0 NOTYPE  GLOBAL DEFAULT    1 vector11
+   571: 80106818     0 NOTYPE  GLOBAL DEFAULT    1 vector14
+   572: 80101092    79 FUNC    GLOBAL DEFAULT    1 filestat
+
+No version information found in this file.
