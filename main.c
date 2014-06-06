@@ -58,8 +58,8 @@ mpmain(void)
 {
   cprintf("cpu%d: starting\n", cpu->id);
   idtinit();       // load idt register
-  xchg(&cpu->started, 1); // tell startothers() we're up
-  scheduler();     // start running processes
+  xchg(&cpu->started, 1); // tell startothers() we're up . change the state of other cpu
+  scheduler();     // start running processes   这个可能就是最开始多核开始执行的代码，以后的代码都要
 }
 
 pde_t entrypgdir[];  // For entry.S
@@ -88,7 +88,7 @@ startothers(void)
     // is running in low  memory, so we use entrypgdir for the APs too.
     stack = kalloc();
     *(void**)(code-4) = stack + KSTACKSIZE;
-    *(void**)(code-8) = mpenter;
+    *(void**)(code-8) = mpenter; // @function mpenter() 
     *(int**)(code-12) = (void *) v2p(entrypgdir);
 
     lapicstartap(c->id, v2p(code));

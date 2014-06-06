@@ -50,13 +50,48 @@ sys_sbrk(void)
   if(argint(0, &n) < 0)
     return -1;
   addr = proc->sz;
-  cprintf("the orginal n's value is %d\n", n);
-  //growproc(int n)
-  // decomment here
+  /*** decomment here
 //  if(growproc(n) < 0)
 //    return -1;
-  proc->sz = proc->sz + n;
-  return addr;
+*/
+/***
+add my code in here homework 4
+task : allocate page 
+ ***/
+  /*
+  uint sz;
+  sz = proc->sz;
+  // allocuvm( proc->pgdir, sz, sz + n ))
+  // allocuvm(pde_t *pgdir, uint oldsz, uint newsz)
+  uint oldsz = sz;
+  uint newsz = sz + n;
+  char *mem;
+  uint a;
+  if (newsz > KERNBASE)
+  {
+    return 0;
+  }
+  if (newsz < oldsz)
+  {
+    return oldsz;
+  }
+  a = PGROUNDUP(oldsz);
+  for (; a< newsz; a += PGSIZE)
+  {
+    mem = kalloc();
+    if (mem == 0)
+    {
+      cprintf("allcocuvm out of memory\n");
+      deallocuvm(proc->pddir, newsz, oldsz);
+      return 0;
+    }
+    memset(mem, 0 , PGSIZE);
+    mappages(proc->pgdir, newsz, oldsz);
+  }
+  if (newsz == 0)
+    return -1;
+    proc-> = newsz;*/
+  return  addr;
 }
 
 int
@@ -76,7 +111,7 @@ sys_sleep(void)
     }
     sleep(&ticks, &tickslock);
   }
-  release(&tickslock); // the lock's location is very importentS
+  release(&tickslock);
   return 0;
 }
 

@@ -21,7 +21,7 @@ alltraps:
   # Call trap(tf), where tf=%esp
   pushl %esp
   call  trap
-  addl $4, %esp  # popl %esp 
+  addl $4, %esp #  popl %esp = addl $4 , %esp 
 
   # Return falls through to trapret...
 .globl trapret

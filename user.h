@@ -22,6 +22,10 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
+/***
+* modify by tiankai
+**/
+void halt();
 
 // ulib.c
 int stat(char*, struct stat*);

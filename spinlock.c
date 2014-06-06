@@ -63,7 +63,7 @@ release(struct spinlock *lk)
   popcli();
 }
 
-// Record the current call stack in pcs[] by following the %ebp chain.
+// Record the current call stack in pcs[] by following the %ebp chain. 保存当前的调用栈
 void
 getcallerpcs(void *v, uint pcs[])
 {

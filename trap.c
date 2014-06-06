@@ -7,10 +7,10 @@
 #include "x86.h"
 #include "traps.h"
 #include "spinlock.h"
-
 // Interrupt descriptor table (shared by all CPUs).
 struct gatedesc idt[256];
 extern uint vectors[];  // in vectors.S: array of 256 entry pointers
+extern int  mappages(pde_t *pgdir, void *va, uint size, uint pa, int perm);// in vm.c : allocate the page 
 struct spinlock tickslock;
 uint ticks;
 
@@ -77,7 +77,33 @@ trap(struct trapframe *tf)
             cpu->id, tf->cs, tf->eip);
     lapiceoi();
     break;
+ /*
+   * modified the trap.c , 
+   */
    
+    /* how to implement a trap ;
+  case T_PGFLT:
+    {
+      uint newsz = proc->sz;
+      cprintf("before the mappages the valuse of the newsz is %d \n", newsz);
+      uint va = PGROUNDUP(rcr2());
+      char *mem;
+      mem = kalloc();
+	  if(mem == 0){
+        cprintf("allocuvm out of memory\n");
+        cprintf("pid %d %s: trap %d err %d on cpu %d "
+            "eip 0x%x addr 0x%x--kill proc\n",
+            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip,
+            rcr2());
+        proc->killed = 1;
+        return;
+    }
+      memset(mem, 0, PGSIZE);
+      mappages(proc->pgdir, (void *)va, PGSIZE, v2p(mem), PTE_W|PTE_U);
+     switchuvm(proc);
+     break; 
+    }
+    */
   //PAGEBREAK: 13
   default:
     if(proc == 0 || (tf->cs&3) == 0){
@@ -86,6 +112,29 @@ trap(struct trapframe *tf)
               tf->trapno, cpu->id, tf->eip, rcr2());
       panic("trap");
     }
+    
+  if(tf->trapno == T_PGFLT){
+    // rcr2() is the address causing page fault
+    // should only allocate for this page
+    char * mem;
+    uint a;
+
+    a = PGROUNDDOWN(rcr2());
+
+    mem = kalloc();
+    if(mem == 0){
+        cprintf("allocuvm out of memory\n");
+        cprintf("pid %d %s: trap %d err %d on cpu %d "
+            "eip 0x%x addr 0x%x--kill proc\n",
+            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip,
+            rcr2());
+        proc->killed = 1;
+        return;
+    }
+    memset(mem, 0, PGSIZE);
+    mappages(proc->pgdir, (void *)a, PGSIZE, v2p(mem), PTE_W|PTE_U);
+    return;
+  } 
     // In user space, assume process misbehaved.
     cprintf("pid %d %s: trap %d err %d on cpu %d "
             "eip 0x%x addr 0x%x--kill proc\n",
@@ -93,7 +142,6 @@ trap(struct trapframe *tf)
             rcr2());
     proc->killed = 1;
   }
-
   // Force process exit if it has been killed and is in user space.
   // (If it is still executing in the kernel, let it keep running 
   // until it gets to the regular system call return.)

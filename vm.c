@@ -67,7 +67,9 @@ walkpgdir(pde_t *pgdir, const void *va, int alloc)
 // Create PTEs for virtual addresses starting at va that refer to
 // physical addresses starting at pa. va and size might not
 // be page-aligned.
-static int
+//static int  // orginal
+/* modified by tiankai*/
+int
 mappages(pde_t *pgdir, void *va, uint size, uint pa, int perm)
 {
   char *a, *last;
@@ -166,7 +168,7 @@ switchuvm(struct proc *p)
 {
   pushcli();
   cpu->gdt[SEG_TSS] = SEG16(STS_T32A, &cpu->ts, sizeof(cpu->ts)-1, 0);
-  cpu->gdt[SEG_TSS].s = 0;
+  cpu->gdt[SEG_TSS].s = 0; // this is system
   cpu->ts.ss0 = SEG_KDATA << 3;
   cpu->ts.esp0 = (uint)proc->kstack + KSTACKSIZE;
   ltr(SEG_TSS << 3);
@@ -242,9 +244,9 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz)
   return newsz;
 }
 
-// Deallocate user pages to bring the process size from oldsz to
-// newsz.  oldsz and newsz need not be page-aligned, nor does newsz
-// need to be less than oldsz.  oldsz can be larger than the actual
+// Deallocate(解除分配) user pages to bring the process size from oldsz to
+// newsz.  oldsz and newsz need not be page-aligned（叶有序）, nor does newsz
+// need to be less than oldsz（newsz 并不需要一定要比 oldsz 小）.  oldsz can be larger than the actual
 // process size.  Returns the new process size.
 int
 deallocuvm(pde_t *pgdir, uint oldsz, uint newsz)

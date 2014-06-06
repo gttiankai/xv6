@@ -46,7 +46,7 @@ void
 freerange(void *vstart, void *vend)
 {
   char *p;
-  p = (char*)PGROUNDUP((uint)vstart);
+  p = (char*)PGROUNDUP((uint)vstart); // why use the function of PGROUNDDUP  ? 
   for(; p + PGSIZE <= (char*)vend; p += PGSIZE)
     kfree(p);
 }

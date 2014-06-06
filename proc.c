@@ -111,10 +111,10 @@ growproc(int n)
   
   sz = proc->sz;
   if(n > 0){
-    if((sz = allocuvm(proc->pgdir, sz, sz + n)) == 0)
+    if((sz = allocuvm(proc->pgdir, sz, sz + n)) == 0)  // allocate  the page
       return -1;
   } else if(n < 0){
-    if((sz = deallocuvm(proc->pgdir, sz, sz + n)) == 0)
+    if((sz = deallocuvm(proc->pgdir, sz, sz + n)) == 0) // deallocate the page
       return -1;
   }
   proc->sz = sz;
@@ -273,6 +273,7 @@ scheduler(void)
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
       proc = p;
+	  
       switchuvm(p);
       p->state = RUNNING;
       swtch(&cpu->scheduler, proc->context);
@@ -280,7 +281,7 @@ scheduler(void)
 
       // Process is done running for now.
       // It should have changed its p->state before coming back.
-      proc = 0;
+      proc = 0; // 
     }
     release(&ptable.lock);
 

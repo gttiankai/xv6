@@ -1,0 +1,329 @@
+---- proc Matches (383 in 44 files) ----
+Console.c:#include "proc.h"
+Console.c:      if(proc->killed){
+Console.d: file.h memlayout.h mmu.h proc.h x86.h
+Defs.h:struct proc;
+Defs.h:// proc.c
+Defs.h:struct proc*    copyproc(struct proc*);
+Defs.h:void            switchuvm(struct proc*);
+Exec.c:#include "proc.h"
+Exec.c:  safestrcpy(proc->name, last, sizeof(proc->name));
+Exec.c:  oldpgdir = proc->pgdir;
+Exec.c:  proc->pgdir = pgdir;
+Exec.c:  proc->sz = sz;
+Exec.c:  proc->tf->eip = elf.entry;  // main
+Exec.c:  proc->tf->esp = sp;
+Exec.c:  switchuvm(proc);
+Exec.d:exec.o: exec.c types.h param.h memlayout.h mmu.h proc.h defs.h x86.h \
+Forktest.c:// Tiny executable so that the limit can be filling the proc table.
+Fs.c:#include "proc.h"
+Fs.c:    ip = idup(proc->cwd);
+Fs.d:fs.o: fs.c types.h defs.h param.h stat.h mmu.h proc.h spinlock.h buf.h \
+Ide.c:#include "proc.h"
+Ide.d:ide.o: ide.c types.h defs.h param.h memlayout.h mmu.h proc.h x86.h \
+Kernel.asm:      if(proc->killed){
+Kernel.asm:  safestrcpy(proc->name, last, sizeof(proc->name));
+Kernel.asm:  oldpgdir = proc->pgdir;
+Kernel.asm:  proc->pgdir = pgdir;
+Kernel.asm:  proc->sz = sz;
+Kernel.asm:  proc->tf->eip = elf.entry;  // main
+Kernel.asm:  proc->tf->esp = sp;
+Kernel.asm:  switchuvm(proc);
+Kernel.asm:  switchuvm(proc);
+Kernel.asm:    ip = idup(proc->cwd);
+Kernel.asm:    ip = idup(proc->cwd);
+Kernel.asm:    ip = idup(proc->cwd);
+Kernel.asm:  struct mpproc *proc;
+Kernel.asm:      proc = (struct mpproc*)p;
+Kernel.asm:      if(ncpu != proc->apicid){
+Kernel.asm:        cprintf("mpinit: ncpu=%d apicid=%d\n", ncpu, proc->apicid);
+Kernel.asm:      if(proc->flags & MPBOOT)
+Kernel.asm:  struct mpproc *proc;
+Kernel.asm:      if(p->readopen == 0 || proc->killed){
+Kernel.asm:    if(proc->killed){
+Kernel.asm:static struct proc*
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Kernel.asm:  struct proc *p;
+Kernel.asm:  sz = proc->sz;
+Kernel.asm:    if((sz = allocuvm(proc->pgdir, sz, sz + n)) == 0)  // allocate  the page
+Kernel.asm:    if((sz = deallocuvm(proc->pgdir, sz, sz + n)) == 0) // deallocate the page
+Kernel.asm:  proc->sz = sz;
+Kernel.asm:  switchuvm(proc);
+Kernel.asm:// Caller must set state of returned proc to RUNNABLE.
+Kernel.asm:  struct proc *np;
+Kernel.asm:  if((np->pgdir = copyuvm(proc->pgdir, proc->sz)) == 0){
+Kernel.asm:  np->sz = proc->sz;
+Kernel.asm:  np->parent = proc;
+Kernel.asm:  *np->tf = *proc->tf;
+Kernel.asm:    if(proc->ofile[i])
+Kernel.asm:      np->ofile[i] = filedup(proc->ofile[i]);
+Kernel.asm:  *np->tf = *proc->tf;
+Kernel.asm:    if(proc->ofile[i])
+Kernel.asm:      np->ofile[i] = filedup(proc->ofile[i]);
+Kernel.asm:  np->cwd = idup(proc->cwd);
+Kernel.asm:  safestrcpy(np->name, proc->name, sizeof(proc->name));
+Kernel.asm:  struct proc *p;
+Kernel.asm:  if(proc == initproc)
+Kernel.asm:    if(proc->ofile[fd]){
+Kernel.asm:      fileclose(proc->ofile[fd]);
+Kernel.asm:      proc->ofile[fd] = 0;
+Kernel.asm:  if(proc == initproc)
+Kernel.asm:      fileclose(proc->ofile[fd]);
+Kernel.asm:      proc->ofile[fd] = 0;
+Kernel.asm:  iput(proc->cwd);
+Kernel.asm:  proc->cwd = 0;
+Kernel.asm:  wakeup1(proc->parent);
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:    if(p->parent == proc){
+Kernel.asm:  wakeup1(proc->parent);
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:  proc->state = ZOMBIE;
+Kernel.asm:  struct proc *p;
+Kernel.asm:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:      if(p->parent != proc)
+Kernel.asm:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:      if(p->parent != proc)
+Kernel.asm:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:    if(!havekids || proc->killed){
+Kernel.asm:    sleep(proc, &ptable.lock);  //DOC: wait-sleep
+Kernel.asm:  struct proc *p;
+Kernel.asm:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:      proc = p;
+Kernel.asm:      swtch(&cpu->scheduler, proc->context);
+Kernel.asm:      proc = 0;
+Kernel.asm:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:      proc = 0;
+Kernel.asm:// and have changed proc->state.
+Kernel.asm:  if(proc->state == RUNNING)
+Kernel.asm:  swtch(&proc->context, cpu->scheduler);
+Kernel.asm:  proc->state = RUNNABLE;
+Kernel.asm:  if(proc == 0)
+Kernel.asm:  proc->chan = chan;
+Kernel.asm:  proc->state = SLEEPING;
+Kernel.asm:  proc->chan = 0;
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:  struct proc *p;
+Kernel.asm:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Kernel.asm:#include "proc.h"
+Kernel.asm:  movl 8(%esp), %edx    //  proc->context
+Kernel.asm:  if(addr >= proc->sz || addr+4 > proc->sz)
+Kernel.asm:  if(addr >= proc->sz)
+Kernel.asm:  ep = (char*)proc->sz;
+Kernel.asm:  if(addr >= proc->sz)
+Kernel.asm:  ep = (char*)proc->sz;
+Kernel.asm:  return fetchint(proc->tf->esp + 4 + 4*n, ip);
+Kernel.asm:  if((uint)i >= proc->sz || (uint)i+size > proc->sz)
+Kernel.asm:  num = proc->tf->eax;
+Kernel.asm:    proc->tf->eax = syscalls[num]();
+Kernel.asm:            proc->pid, proc->name, num);
+Kernel.asm:    proc->tf->eax = syscalls[num]();
+Kernel.asm:            proc->pid, proc->name, num);
+Kernel.asm:    proc->tf->eax = -1;
+Kernel.asm:  if(fd < 0 || fd >= NOFILE || (f=proc->ofile[fd]) == 0)
+Kernel.asm:    if(proc->ofile[fd] == 0){
+Kernel.asm:      proc->ofile[fd] = f;
+Kernel.asm:    if(proc->ofile[fd] == 0){
+Kernel.asm:      proc->ofile[fd] = f;
+Kernel.asm:  proc->ofile[fd] = 0;
+Kernel.asm:  iput(proc->cwd);
+Kernel.asm:  proc->cwd = ip;
+Kernel.asm:      proc->ofile[fd0] = 0;
+Kernel.asm:#include "proc.h"
+Kernel.asm:  return proc->pid;
+Kernel.asm:  addr = proc->sz;
+Kernel.asm:    mappages(proc->pgdir, newsz, oldsz);
+Kernel.asm:    proc-> = newsz;*/
+Kernel.asm:    if(proc->killed){
+Kernel.asm:    if(proc->killed)
+Kernel.asm:    proc->tf = tf;
+Kernel.asm:    if(proc->killed)
+Kernel.asm:    if(proc == 0 || (tf->cs&3) == 0){
+Kernel.asm:    if(proc == 0 || (tf->cs&3) == 0){
+Kernel.asm:    if(proc == 0 || (tf->cs&3) == 0){
+Kernel.asm:    if(proc == 0 || (tf->cs&3) == 0){
+Kernel.asm:            "eip 0x%x addr 0x%x--kill proc\n",
+Kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Kernel.asm:            "eip 0x%x addr 0x%x--kill proc\n",
+Kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Kernel.asm:            "eip 0x%x addr 0x%x--kill proc\n",
+Kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Kernel.asm:            "eip 0x%x addr 0x%x--kill proc\n",
+Kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Kernel.asm:            "eip 0x%x addr 0x%x--kill proc\n",
+Kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Kernel.asm:            "eip 0x%x addr 0x%x--kill proc\n",
+Kernel.asm:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Kernel.asm:    proc->killed = 1;
+Kernel.asm:  if(proc && proc->killed && (tf->cs&3) == DPL_USER)
+Kernel.asm:  if(proc && proc->state == RUNNING && tf->trapno == T_IRQ0+IRQ_TIMER)
+Kernel.asm:  if(proc && proc->killed && (tf->cs&3) == DPL_USER)
+Kernel.asm:    proc->tf = tf;
+Kernel.asm:    if(proc->killed)
+Kernel.asm:  if(proc && proc->killed && (tf->cs&3) == DPL_USER)
+Kernel.asm:  proc = 0;
+Kernel.asm:switchuvm(struct proc *p)
+Kernel.asm:  cpu->ts.esp0 = (uint)proc->kstack + KSTACKSIZE;
+Kernel.sym:00000000 proc.c
+Main.c:#include "proc.h"
+Main.d:main.o: main.c types.h defs.h param.h memlayout.h mmu.h proc.h x86.h
+Makefile:	proc.o\
+Makefile:	# in order to be able to max out the proc table.
+Memide.c:#include "proc.h"
+Mp.c:#include "proc.h"
+Mp.c:  struct mpproc *proc;
+Mp.c:      proc = (struct mpproc*)p;
+Mp.c:      if(ncpu != proc->apicid){
+Mp.c:        cprintf("mpinit: ncpu=%d apicid=%d\n", ncpu, proc->apicid);
+Mp.c:      if(proc->flags & MPBOOT)
+Mp.d:mp.o: mp.c types.h defs.h param.h memlayout.h mp.h x86.h mmu.h proc.h
+Mp.h:    #define MPBOOT 0x02           // This proc is the bootstrap processor.
+Pipe.c:#include "proc.h"
+Pipe.c:      if(p->readopen == 0 || proc->killed){
+Pipe.c:    if(proc->killed){
+Pipe.d:pipe.o: pipe.c types.h defs.h param.h mmu.h proc.h fs.h file.h spinlock.h
+Proc.c:#include "proc.h"
+Proc.c:  struct proc proc[NPROC];
+Proc.c:static struct proc *initproc;
+Proc.c:// Look in the process table for an UNUSED proc.
+Proc.c:static struct proc*
+Proc.c:  struct proc *p;
+Proc.c:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Proc.c:  struct proc *p;
+Proc.c:  sz = proc->sz;
+Proc.c:    if((sz = allocuvm(proc->pgdir, sz, sz + n)) == 0)  // allocate  the page
+Proc.c:    if((sz = deallocuvm(proc->pgdir, sz, sz + n)) == 0) // deallocate the page
+Proc.c:  proc->sz = sz;
+Proc.c:  switchuvm(proc);
+Proc.c:// Caller must set state of returned proc to RUNNABLE.
+Proc.c:  struct proc *np;
+Proc.c:  if((np->pgdir = copyuvm(proc->pgdir, proc->sz)) == 0){
+Proc.c:  np->sz = proc->sz;
+Proc.c:  np->parent = proc;
+Proc.c:  *np->tf = *proc->tf;
+Proc.c:    if(proc->ofile[i])
+Proc.c:      np->ofile[i] = filedup(proc->ofile[i]);
+Proc.c:  np->cwd = idup(proc->cwd);
+Proc.c:  safestrcpy(np->name, proc->name, sizeof(proc->name));
+Proc.c:  struct proc *p;
+Proc.c:  if(proc == initproc)
+Proc.c:    if(proc->ofile[fd]){
+Proc.c:      fileclose(proc->ofile[fd]);
+Proc.c:      proc->ofile[fd] = 0;
+Proc.c:  iput(proc->cwd);
+Proc.c:  proc->cwd = 0;
+Proc.c:  wakeup1(proc->parent);
+Proc.c:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Proc.c:    if(p->parent == proc){
+Proc.c:  proc->state = ZOMBIE;
+Proc.c:  struct proc *p;
+Proc.c:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Proc.c:      if(p->parent != proc)
+Proc.c:    if(!havekids || proc->killed){
+Proc.c:    sleep(proc, &ptable.lock);  //DOC: wait-sleep
+Proc.c:  struct proc *p;
+Proc.c:    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Proc.c:      proc = p;
+Proc.c:      swtch(&cpu->scheduler, proc->context);
+Proc.c:      proc = 0;
+Proc.c:// and have changed proc->state.
+Proc.c:  if(proc->state == RUNNING)
+Proc.c:  swtch(&proc->context, cpu->scheduler);
+Proc.c:  proc->state = RUNNABLE;
+Proc.c:  if(proc == 0)
+Proc.c:  proc->chan = chan;
+Proc.c:  proc->state = SLEEPING;
+Proc.c:  proc->chan = 0;
+Proc.c:  struct proc *p;
+Proc.c:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+Proc.c:  struct proc *p;
+Proc.c:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Proc.c:  struct proc *p;
+Proc.c:  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+Proc.d:proc.o: proc.c types.h defs.h param.h memlayout.h mmu.h x86.h proc.h \
+Proc.h:// Segments in proc->gdt.
+Proc.h:  struct proc *proc;           // The currently-running process.
+Proc.h:// and "%gs:4" to refer to proc.  seginit sets up the
+Proc.h:extern struct proc *proc asm("%gs:4");     // cpus[cpunum()].proc
+Proc.h:struct proc {
+Proc.h:  struct proc *parent;         // Parent process
+Runoff.list:proc.h
+Runoff.list:proc.c
+Runoff.spec:# This gets struct proc and allocproc on the same spread
+Runoff.spec:left: proc.h
+Runoff.spec:even: proc.h
+Runoff.spec:right: proc.c   # VERY important
+Runoff.spec:even: proc.c   # VERY important
+Spinlock.c:#include "proc.h"
+Spinlock.d: proc.h spinlock.h
+swtch.S:  movl 8(%esp), %edx    //  proc->context
+Syscall.c:#include "proc.h"
+Syscall.c:  if(addr >= proc->sz || addr+4 > proc->sz)
+Syscall.c:  if(addr >= proc->sz)
+Syscall.c:  ep = (char*)proc->sz;
+Syscall.c:  return fetchint(proc->tf->esp + 4 + 4*n, ip);
+Syscall.c:  if((uint)i >= proc->sz || (uint)i+size > proc->sz)
+Syscall.c:  num = proc->tf->eax;
+Syscall.c:    proc->tf->eax = syscalls[num]();
+Syscall.c:            proc->pid, proc->name, num);
+Syscall.c:    proc->tf->eax = -1;
+Syscall.d:syscall.o: syscall.c types.h defs.h param.h memlayout.h mmu.h proc.h \
+Sysfile.c:#include "proc.h"
+Sysfile.c:  if(fd < 0 || fd >= NOFILE || (f=proc->ofile[fd]) == 0)
+Sysfile.c:    if(proc->ofile[fd] == 0){
+Sysfile.c:      proc->ofile[fd] = f;
+Sysfile.c:  proc->ofile[fd] = 0;
+Sysfile.c:  iput(proc->cwd);
+Sysfile.c:  proc->cwd = ip;
+Sysfile.c:      proc->ofile[fd0] = 0;
+Sysfile.d:sysfile.o: sysfile.c types.h defs.h param.h stat.h mmu.h proc.h fs.h \
+Sysproc.c:#include "proc.h"
+Sysproc.c:  return proc->pid;
+Sysproc.c:  addr = proc->sz;
+Sysproc.c:  sz = proc->sz;
+Sysproc.c:  // allocuvm( proc->pgdir, sz, sz + n ))
+Sysproc.c:      deallocuvm(proc->pddir, newsz, oldsz);
+Sysproc.c:    mappages(proc->pgdir, newsz, oldsz);
+Sysproc.c:    proc-> = newsz;*/
+Sysproc.c:    if(proc->killed){
+Sysproc.d: proc.h
+Trap.c:#include "proc.h"
+Trap.c:    if(proc->killed)
+Trap.c:    proc->tf = tf;
+Trap.c:    if(proc->killed)
+Trap.c:    if(proc == 0 || (tf->cs&3) == 0){
+Trap.c:            "eip 0x%x addr 0x%x--kill proc\n",
+Trap.c:            proc->pid, proc->name, tf->trapno, tf->err, cpu->id, tf->eip, 
+Trap.c:    proc->killed = 1;
+Trap.c:  if(proc && proc->killed && (tf->cs&3) == DPL_USER)
+Trap.c:  if(proc && proc->state == RUNNING && tf->trapno == T_IRQ0+IRQ_TIMER)
+Trap.c:  if(proc && proc->killed && (tf->cs&3) == DPL_USER)
+Trap.d:trap.o: trap.c types.h defs.h param.h memlayout.h mmu.h proc.h x86.h \
+Tricks:This works because proc.h marks the pid as volatile.
+Uart.c:#include "proc.h"
+Uart.d: mmu.h proc.h x86.h
+Usertests.asm:// the forktest binary also does this, but it runs out of proc entries first.
+Usertests.c:// the forktest binary also does this, but it runs out of proc entries first.
+Vm.c:#include "proc.h"
+Vm.c:  proc = 0;
+Vm.c:switchuvm(struct proc *p)
+Vm.c:  cpu->ts.esp0 = (uint)proc->kstack + KSTACKSIZE;
+Vm.d:vm.o: vm.c param.h types.h defs.h x86.h memlayout.h mmu.h proc.h elf.h
+---- proc Search Errors Encountered (2) ----
+The following 2 files could not be processed:
+Z:\home\tk\kernel\xv6\xv6.IAB : File could not be opened.
+Z:\home\tk\kernel\xv6\xv6.IMB : File could not be opened.
